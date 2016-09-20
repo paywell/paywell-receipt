@@ -15,7 +15,17 @@
 //dependencies
 const _ = require('lodash');
 const redis = require('paywell-redis');
+const kue = require('kue');
 const uuid = require('uuid');
+
+
+//default receipt options
+const defaults = {
+  prefix: 'paywell',
+  redis: {},
+  collection: 'receipts',
+  queue: 'receipts'
+};
 
 
 /**
@@ -25,10 +35,7 @@ const uuid = require('uuid');
  * @private
  * @since 0.1.0
  */
-exports.defaults = {
-  collection: 'receipts',
-  queue: 'receipts'
-};
+exports.defaults = _.merge({}, defaults);
 
 
 /**
@@ -40,7 +47,16 @@ exports.defaults = {
  */
 exports.init = function () {
   //initialize redis client
-  exports.redis = redis(exports.defaults);
+  if (!exports.redis) {
+    exports.redis = redis(exports.defaults);
+  }
+
+  //initialize queue
+  if (!exports.queue) {
+    //TODO listen queue errors
+    exports.queue = kue.createQueue(exports.defaults);
+  }
+
 };
 
 
@@ -97,7 +113,7 @@ exports.get = function (keys, done) {
         receivedAt: Date(receipts.receivedAt)
       });
     }
-    
+
     done(error, receipts);
   });
 
