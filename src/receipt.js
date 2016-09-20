@@ -41,11 +41,12 @@ exports.defaults = _.merge({}, defaults);
 /**
  * @function
  * @name init
- * @description initialize tigopesa receipt internals
+ * @description initialize receipt internals
  * @since 0.1.0
  * @public
  */
 exports.init = function () {
+
   //initialize redis client
   if (!exports.redis) {
     exports.redis = redis(exports.defaults);
