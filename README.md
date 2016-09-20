@@ -38,7 +38,8 @@ receipt.process(fn);
 
 ## TODO
 - [x] Documentation
-- [ ] should be able to valide receipt
+- [ ] should be able to validate receipt
+    + [ ] should validate presence of currency 
 - [x] should be able to save receipt
     + [ ] normalize customer phone number into e.164 
 - [x] should be able to get receipt

@@ -174,6 +174,8 @@ exports.get = function (keys, done) {
  * @public
  */
 exports.queue = function (receipt) {
+  //TODO add support for additional options i.e delay etc
+
   //ensure receipt
   receipt = _.merge({}, receipt);
 
