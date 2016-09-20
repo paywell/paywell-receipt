@@ -36,6 +36,7 @@ receipt.queue(<receipt_details>, done);
 ## TODO
 - [ ] Documentation
 - [ ] should be able to save receipt
+    + [ ] normalize customer phone number into e.164 
 - [ ] should be able to get receipt
 - [ ] should be able to search receipt
 - [ ] should be able to persist receipt into MongoDB
