@@ -75,6 +75,30 @@ describe('paywell-receipt', function () {
     });
   });
 
+  describe('search', function () {
+    let rcpt;
+    before(function (done) {
+      redis.clear(done);
+    });
+
+    before(function () {
+      rcpt = require(path.join(__dirname, 'fixtures',
+        'receipt.json'));
+    });
+
+    before(function (done) {
+      receipt.save(rcpt, done);
+    });
+
+    it('should be able to search receipt', function (done) {
+      receipt.search(rcpt.uuid, function (error, _receipts) {
+        expect(error).to.not.exist;
+        expect(_receipts[0]._id).to.exist;
+        done(error, _receipts);
+      });
+    });
+  });
+
   describe('queue', function () {
     let rcpt;
 
@@ -104,7 +128,7 @@ describe('paywell-receipt', function () {
         });
 
         receipt.queue(rcpt);
-        
+
       });
   });
 
