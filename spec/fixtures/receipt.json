@@ -1,0 +1,13 @@
+{
+  "receivedAt": "2016-09-14T05:04:38.255Z",
+  "amount": 2000,
+  "customer": 714086782,
+  "reference": 11111,
+  "uuid": "bc9d1ff0-7a38-11e6-996b-33b697289b02",
+  "provider": {
+    "name": "PAYWELL",
+    "country": "TZ",
+    "uuid": 123456,
+    "type": "Buy Goods"
+  }
+}
