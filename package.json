@@ -4,8 +4,7 @@
   "description": "cash receipt for paywell",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test",
-    "example": "npm link . && npm link paywell-receipt && node examples/index.js"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
