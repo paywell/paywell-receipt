@@ -42,6 +42,7 @@ receipt.queue(<receipt_details>, done);
 - [ ] should be able to persist receipt into MongoDB
 - [ ] should be able to process receipt jobs
     + [ ] should be able to parse date string to js date
+- [ ] add receipt pagination 
 
 ## Testing
 * Clone this repository

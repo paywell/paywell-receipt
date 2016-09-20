@@ -75,6 +75,39 @@ describe('paywell-receipt', function () {
     });
   });
 
+  describe('queue', function () {
+    let rcpt;
+
+    beforeEach(function (done) {
+      redis.clear(done);
+    });
+
+    before(function () {
+      rcpt = require(path.join(__dirname, 'fixtures',
+        'receipt.json'));
+    });
+
+    it(
+      'should be able to queue receipt for later processing',
+      function (done) {
+
+        //listen for job receipt
+        receipt.process(function (job, finish) {
+          const receipt = job.data;
+          expect(receipt.receivedAt).to.exist;
+          expect(receipt.uuid).to.exist;
+          expect(receipt.amount).to.exist;
+          expect(receipt.customer).to.exist;
+          expect(receipt.provider).to.exist;
+          finish();
+          done();
+        });
+
+        receipt.queue(rcpt);
+        
+      });
+  });
+
   //clean database
   after(function (done) {
     redis.clear(done);
