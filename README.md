@@ -1,6 +1,10 @@
 paywell-receipt
 ================
 
+[![Build Status](https://travis-ci.org/paywell/paywell-receipt.svg?branch=master)](https://travis-ci.org/paywell/paywell-receipt)
+[![Dependency Status](https://img.shields.io/david/paywell/paywell-receipt.svg?style=flat)](https://david-dm.org/paywell/paywell-receipt)
+[![npm version](https://badge.fury.io/js/paywell-receipt.svg)](https://badge.fury.io/js/paywell-receipt)
+
 cash receipt for paywell
 
 ## Requirements
