@@ -31,14 +31,18 @@ receipt.search(<search_term>, done);
 
 //queue receipt for processing
 receipt.queue(<receipt_details>, done);
+
+//in other process not main process
+receipt.process(fn);
 ```
 
 ## TODO
-- [ ] Documentation
-- [ ] should be able to save receipt
+- [x] Documentation
+- [x] should be able to save receipt
     + [ ] normalize customer phone number into e.164 
-- [ ] should be able to get receipt
-- [ ] should be able to search receipt
+- [x] should be able to get receipt
+- [x] should be able to search receipt
+    + [ ] should be able to search with numbers 
 - [ ] should be able to persist receipt into MongoDB
 - [ ] should be able to process receipt jobs
     + [ ] should be able to parse date string to js date
